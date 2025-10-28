@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.lastsymp.smsrelay">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -11,9 +10,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- WRITE_SMS & SEND_SMS itu permission sensitif.
-         WRITE_SMS udah deprecated/protected. Kita tetap declare tapi kasih tools:ignore biar gak bikin AGP marah.
-    -->
     <uses-permission
         android:name="android.permission.WRITE_SMS"
         tools:ignore="ProtectedPermissions" />
@@ -22,13 +18,11 @@
     <application
         android:allowBackup="true"
         android:label="SMS Relay"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@android:drawable/sym_def_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmsRelay"
         tools:targetApi="34">
 
-        <!-- Activity UI untuk izin -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -39,7 +33,6 @@
             </intent-filter>
         </activity>
 
-        <!-- BroadcastReceiver penerima SMS -->
         <receiver
             android:name=".SmsReceiver"
             android:exported="true"
